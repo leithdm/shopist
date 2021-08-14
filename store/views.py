@@ -5,5 +5,5 @@ def store(request):
     return render(request, 'store/index.html')
 
 
-def aboutPage(request):
-    return render(request, 'store/about.html')
+def productDetails(request):
+    return render(request, 'store/product_details.html')
