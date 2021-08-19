@@ -8,6 +8,7 @@ class Category(models.Model):
     description = models.TextField(blank=True)
     image = models.ImageField(upload_to='category', blank=True)
 
+
     class Meta:
         ordering = ('name',)
         verbose_name = 'category'
@@ -15,10 +16,9 @@ class Category(models.Model):
 
     
     def get_url(self):
-        print(reverse('categorized_products', args=[self.slug]))
         return reverse('categorized_products', args=[self.slug])
     
-
+    
     def __str__(self):
         return self.name
     
@@ -40,6 +40,11 @@ class Product(models.Model):
         ordering = ('name',)
         verbose_name = 'product'
         verbose_name_plural = 'products'
+
+
+    def get_url(self):
+        return reverse('product_detail', args=[self.category.slug, self.slug])
+
 
     def __str__(self):
         return self.name
