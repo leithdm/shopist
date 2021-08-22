@@ -1,0 +1,17 @@
+{% extends 'store/base.html' %}
+{% load static %}
+{% block title %}
+Shopist Store
+{% endblock %}
+
+{% block content %}
+  <div class="text-center">
+    <h1 class="text-center product_title">Thank you for placing your order ! <i class="fas fa-heart"></i></h1>
+    <br>
+    <p>Please note that we have received your order and will begin processing right away</p>
+    <br>
+    <p>An email confirmation has been sent to you. It contains details of the items you purchased.</p> 
+    <br>
+    <p>Your order number is: <b>{{ customer_order.id }}</b></p>
+  </div>
+{% endblock %}

@@ -124,7 +124,7 @@ def cart_detail(request, total=0, counter=0, cart_items=None):
                     products.save()
                     order_item.delete()
                     print('**The order has been successfully created**')
-                return redirect('home')
+                return redirect('thank_you_page', order_details.id)
             #if the object does not exist, simply do a pass to ignore it
             except ObjectDoesNotExist:
                 pass
@@ -156,3 +156,10 @@ def cart_trashItem(request, product_id):
     cart_item = CartItem.objects.get(product=product, cart=cart)
     cart_item.delete()
     return redirect('cart_detail')
+
+
+''' Redirect user to a thank-you page after submitting order '''
+def thank_you_page(request, order_id):
+    if order_id:
+        customer_order = get_object_or_404(Order, id=order_id)
+    return render(request, 'checkout/thank_you.html', {'customer_order': customer_order})
