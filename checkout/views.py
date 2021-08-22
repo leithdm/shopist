@@ -30,7 +30,9 @@ def add_cart(request, product_id):
     # if cartItem exists, update its qty
     try:
         cart_item = CartItem.objects.get(product=product, cart=cart)
-        cart_item.quantity += 1
+        #only add to cart if have available stock
+        if cart_item.quantity < cart_item.product.stock:
+                cart_item.quantity += 1
         cart_item.save()
 
     except CartItem.DoesNotExist:

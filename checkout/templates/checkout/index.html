@@ -49,6 +49,7 @@ Cart
             <td>
               ${{ cart_item.sub_total }}
             </td>
+            <!-- only show the + button if have sufficient stock -->
             {% if cart_item.quantity < cart_item.product.stock %}
             <td>
               &nbsp;<a href="{% url 'add_cart' cart_item.product.id %}"><i class="fas fa-plus-circle cart_icon"></i></a>
