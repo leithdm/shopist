@@ -11,7 +11,14 @@
   }
   
   .cart_icon {
-    text-decoration: none;
     color: #0a76e2 
   }
+
+  .stripe-button-el {
+    width: 100%; 
+    display: block;
+    background-color: #868e96; 
+    margin-bottom: 12px;
+  }
+  
   
