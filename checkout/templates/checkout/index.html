@@ -59,7 +59,7 @@ Cart
             {% else %}
             <td>
               &nbsp;<a href="{% url 'cart_removeItem' cart_item.product.id  %}"><i class="fas fa-minus-circle cart_icon"></i></a>
-              &nbsp;<a href="{% url 'cart_trashItem' cart_item.product.id  %}"><i class="fas fa-trash-alt cart_icon"></i></a>>
+              &nbsp;<a href="{% url 'cart_trashItem' cart_item.product.id  %}"><i class="fas fa-trash-alt cart_icon"></i></a>
             </td>
             {% endif %}
           </tr>
