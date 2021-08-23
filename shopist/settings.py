@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'store',
     'checkout',
     'stripe',
+    'author',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -140,3 +142,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #stripe
 STRIPE_PUBLISHABLE_KEY = os.environ.get("STRIPE_PUBLISHABLE_KEY")
 STRIPE_SECRET_KEY = os.environ.get("STRIPE_SECRET_KEY")
+
+#crispy-forms
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
