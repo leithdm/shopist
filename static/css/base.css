@@ -1,0 +1,28 @@
+body {
+    /* background-color: rgb(241, 237, 237) */
+    background-color: yellow;
+}
+
+.border-transparent {
+    border-color: transparent;
+}
+
+.background-transparent {
+    background: transparent;
+} 
+
+.product_title {
+    font-size: 2rem;    
+    text-transform: uppercase;
+    padding-top: 2rem;
+    padding-bottom: 0.8rem;
+}
+
+.product_text {
+    padding-right: 2rem; 
+}
+
+.product_description {
+    font-size: 1rem;    
+    text-transform: uppercase;    
+}
