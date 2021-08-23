@@ -25,3 +25,13 @@ body {
     font-size: 1rem;    
     text-transform: uppercase;    
 }
+
+/* form css */
+.errorlist li {
+    color: red;
+    font-weight: bold;
+}
+
+.custom_div {
+    margin-bottom: 24px; 
+}

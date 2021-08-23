@@ -14,6 +14,7 @@ def signupView(request):
             form.save()
             username = form.cleaned_data.get('username')
             signup_user = User.objects.get(username=username)
+            #save the new user into the customers group
             customer_group = Group.objects.get(name='Customer')
             customer_group.user_set.add(signup_user)
             login(request, signup_user)
@@ -41,4 +42,4 @@ def loginView(request):
 
 def logoutView(request):
     logout(request)
-    return redirect('/')
+    return redirect('login')
