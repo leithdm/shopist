@@ -19,10 +19,9 @@ Product
                 </h5>
                 <p class="product_description">Product Description</p>
                 <p class="text-justify product_text">{{ product.description }}</p>
-                {% if product.stock <= 0 %}
+                {% if request.user.is_authenticated and product.stock <= 0 %}
                 <p class="text-justify product_text"><b>Out of Stock</b></p>
-                {% endif %}
-                {% if request.user.is_authenticated %}
+                {% elif request.user.is_authenticated %}
                 <a href="{% url 'add_cart' product.id %}">Add to Cart</a>
                 {% else %}       
                 <a href="{% url 'login' %}">You must be logged in to purchase.</a>
