@@ -3,10 +3,12 @@ from store.models import Category, Product
 from .models import Cart, CartItem, Order, OrderItem
 from django.core.exceptions import ObjectDoesNotExist
 from django.conf import settings
+from django.contrib.auth.decorators import login_required
 import stripe
 
 
 ''' Get the cart_id '''
+@login_required(redirect_field_name='next', login_url='login')
 def get_cart_id(request):
     cart = request.session.session_key
     if not cart:
@@ -15,6 +17,7 @@ def get_cart_id(request):
 
 
 ''' Add a product to the cart, and update its quantity '''
+@login_required(redirect_field_name='next', login_url='login')
 def add_cart(request, product_id):
     product = Product.objects.get(id=product_id)
     try:
@@ -48,6 +51,7 @@ def add_cart(request, product_id):
 
 
 ''' Retrieve all cartItems in the current session, and calculate total cost of all cart items in the cart'''
+@login_required(redirect_field_name='next', login_url='login')
 def cart_detail(request, total=0, counter=0, cart_items=None):
     # try to get the Cart object from the current session
     try:
@@ -134,6 +138,7 @@ def cart_detail(request, total=0, counter=0, cart_items=None):
 
 
 ''' Remove a cartItem from the cart '''
+@login_required(redirect_field_name='next', login_url='login')
 def cart_removeItem(request, product_id):
     cart = Cart.objects.get(cart_id=get_cart_id(request))
     product = get_object_or_404(Product, id=product_id)
@@ -150,6 +155,7 @@ def cart_removeItem(request, product_id):
 
 
 ''' Trash a cartItem from the cart '''
+@login_required(redirect_field_name='next', login_url='login')
 def cart_trashItem(request, product_id):
     cart = Cart.objects.get(cart_id=get_cart_id(request))
     product = get_object_or_404(Product, id=product_id)
@@ -159,6 +165,7 @@ def cart_trashItem(request, product_id):
 
 
 ''' Redirect user to a thank-you page after submitting order '''
+@login_required(redirect_field_name='next', login_url='login')
 def thank_you_page(request, order_id):
     if order_id:
         customer_order = get_object_or_404(Order, id=order_id)

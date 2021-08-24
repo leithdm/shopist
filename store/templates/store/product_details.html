@@ -21,8 +21,11 @@ Product
                 <p class="text-justify product_text">{{ product.description }}</p>
                 {% if product.stock <= 0 %}
                 <p class="text-justify product_text"><b>Out of Stock</b></p>
-                {% else %}
+                {% endif %}
+                {% if request.user.is_authenticated %}
                 <a href="{% url 'add_cart' product.id %}">Add to Cart</a>
+                {% else %}       
+                <a href="{% url 'login' %}">You must be logged in to purchase.</a>
                 {% endif %}
             </div>
         </div>
