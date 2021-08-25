@@ -23,3 +23,9 @@ def productDetails(request, category_slug, product_slug):
     except Exception as e:
         raise e
     return render(request, 'store/product_details.html', {'product': product})
+
+
+#ability to search using 'search' field on nav-bar
+def search(request):
+    products = Product.objects.filter(name__contains=request.GET['product'])
+    return render(request, 'store/index.html', {'products': products})
