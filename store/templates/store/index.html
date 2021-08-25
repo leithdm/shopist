@@ -43,6 +43,15 @@ Home
                 </div>
             {% endfor %}
         </div>
+        <div class="col-10 mx-auto my-2 text-center">
+            {% if products.paginator.num_pages > 1 %}
+                {% for page_number in products.paginator.page_range %}
+                    <a href="?page={{page_number}}"
+                     class="btn btn-light btn-sm {% if products.number == page_number %}active{% endif %}">
+                     {{page_number}}</a>
+                {% endfor %}
+            {% endif %}
+        </div>        
     </div>
 </div>
 {% endblock %}
