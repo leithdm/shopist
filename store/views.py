@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Category, Product
+from .models import Category, Product, Review
 
 # Create your views here.
 def home(request, category_slug=None):
@@ -22,7 +22,13 @@ def productDetails(request, category_slug, product_slug):
         product = Product.objects.get(category__slug=category_slug, slug=product_slug)
     except Exception as e:
         raise e
-    return render(request, 'store/product_details.html', {'product': product})
+
+    if request.method == 'POST' and request.user.is_authenticated and request.POST['content'].strip() != '':
+        Review.objects.create(product=product,
+                              user=request.user,
+                              content=request.POST['content'])
+    reviews = Review.objects.filter(product=product)    
+    return render(request, 'store/product_details.html', {'product': product, 'reviews': reviews})
 
 
 #ability to search using 'search' field on nav-bar

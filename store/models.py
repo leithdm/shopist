@@ -1,7 +1,8 @@
 from django.db import models
 from django.urls import reverse
+from django.contrib.auth.models import User
 
-# Create your models here.
+''' Category Model '''
 class Category(models.Model):
     name = models.CharField(max_length=254, unique=True)
     slug = models.SlugField(max_length=254, unique=True)
@@ -23,6 +24,7 @@ class Category(models.Model):
         return self.name
     
 
+''' Product model '''
 class Product(models.Model):
     name = models.CharField(max_length=250, unique=True)
     slug = models.SlugField(max_length=250, unique=True)
@@ -48,3 +50,13 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+
+
+''' Review model for adding reviews to the product details page '''
+class Review(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    content = models.CharField(max_length=500)
+
+    def __str__(self):
+        return self.content

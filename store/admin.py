@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category, Product
+from .models import Category, Product, Review
 
 
 #customize category fields shown on the admin table
@@ -20,3 +20,4 @@ class ProductAdmin(admin.ModelAdmin):
 #site registration
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Product, ProductAdmin)
+admin.site.register(Review)
