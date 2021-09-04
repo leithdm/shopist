@@ -22,7 +22,6 @@ def home(request, category_slug=None):
         page = int(request.GET.get('page', '1'))
     except:
         page = 1
-
     try:
         products = paginator.page(page)
     except(EmptyPage, InvalidPage):
@@ -47,5 +46,5 @@ def productDetails(request, category_slug, product_slug):
 
 #ability to search using 'search' field on nav-bar
 def search(request):
-    products = Product.objects.filter(name__contains=request.GET['product'])
+    products = Product.objects.filter(name__contains=request.GET['product'].lower())
     return render(request, 'store/index.html', {'products': products})
