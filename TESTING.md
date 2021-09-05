@@ -113,7 +113,7 @@ However, the following code was also added to `footer.html` in order to print th
 Responsiveness was good on all of the devices listed, both physical and simulated. Brower compatability was good across 
 all the major browsers, except for Internet Explorer 6-11.
 
-![Responsive Design](static/testing/responsiveness.png)
+![Responsive Design](static/../testing_dml/responsiveness.png)
 
 <br/>
 
@@ -122,16 +122,15 @@ all the major browsers, except for Internet Explorer 6-11.
 ## Functionality, Usability, Data Management
 
 I created a comprehensive Testing Document to assess site functionality, usability and data management which can be viewed 
-as a PDF **[here](static/testing/manual-testing-procedure.pdf).**
+as a PDF **[here](static/../testing_dml/manual-testing.pdf).**
 
 **Overview of Testing Procedure:**
 1. Testing Account Creation and Log in.
-2. Testing Create, Read, Update, Delete of Products.
-3. Testing Create, Read, Delete of Product Reviews.
-4. Testing 404, 403, 500 Errors.
-5. Testing URL Protection.
+2. Testing Checkout Functionality, and CRUD.
+3. Testing Make a Purchase
+4. Testing Known Issues with the Checkout.
+5. Testing submission of a prdouct Review.
 6. Testing Search Functionality. 
-7. Testing Stripe Payment Functionality. 
 
 **Result:** Site performed as expected. Please see the Testing Document referenced above. 
 
@@ -150,10 +149,8 @@ the following headers:
 4. SEO
 
 **Result:** see summary results below for **Desktop *index.html***. 
-- For *Best Practices* x5 insecure requests were found as the site does not use HTTPs. As that is not within the remit
-of this project, these warnings were ignored. 
 
-![Desktop](static/testing/lighthouse-desktop.png)
+![Desktop](static/../testing_dml/lighthouse-desktop.png)
 
 
 <br/>
@@ -164,7 +161,7 @@ of this project, these warnings were ignored.
 
 
 **Result:** The majority of user stories have been successfully implemented, with a :white_check_mark: to denote items that 
-have been implemented. User stories related to an adminstrator account have been pushed into a later sprint. 
+have been implemented. 
 
 <br/>
 
@@ -193,5 +190,6 @@ have been implemented. User stories related to an adminstrator account have been
 
 # Bugs
 
+Refer to Testing Document references some known bugs **[here](static/../testing_dml/manual-testing.pdf).**
 
 [Go back to README.md file](README.md).
