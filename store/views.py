@@ -16,7 +16,7 @@ def home(request, category_slug=None):
         # if the category field is empty, display all available products
         products = Product.objects.all().filter(available=True)
 
-    paginator = Paginator(products, 4)
+    paginator = Paginator(products, 12)
 
     try:
         page = int(request.GET.get('page', '1'))
