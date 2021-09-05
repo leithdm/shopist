@@ -81,8 +81,7 @@ dataset about a particular domain*".
 #### Frameworks
 
 - [Django 3.2.5](https://docs.djangoproject.com/en/3.2/releases/3.2.5/) is a framework that is used to render the back-end Python with front-end Bootstrap. 
-- [Boostrap v4.5](https://getbootstrap.com/)
-Bootstrap is a free and open-source CSS framework directed at responsive, mobile-first front-end web development. It contains CSS- and (optionally) JavaScript-based design templates for typography, forms, buttons, navigation, and other interface components.
+- [Boostrap v4.5](https://getbootstrap.com/) is a free and open-source CSS framework directed at responsive, mobile-first front-end web development. It contains CSS -and (optionally) JavaScript- based design templates for typography, forms, buttons, navigation, and other interface components.
 
 <br/>
 
@@ -134,13 +133,14 @@ The database consists of the following tables, represented as follows:
   - **CRUD Functionality:** A registered user can create, read, update and delete their shopping cart. A user can create, read, delete their reviews. An admin has the ability to CRUD Users, Cart Items, Carts, Orders, Categories, Products, and Reviews
   - **Purchase:** A registered User can use Stripe (test card details) to make purchases.  
   - **Read Purchase History:** A registered user can view their entire purchase history.
+  - **Print Purchase History:** A registered user has the option to print a purchase order.
 
 <br/>
 
 ### Future Features
   - **Stripe:** Enhanced Stripe functionality. A basic form of Stripe was implemented on this version of the project. Customer forms, enhanced validations, webhooks, better feedback, etc will be used in next iteration. 
   - **Contact Form:** The contact form should POST, and send comfirmation email upon receipt.
-  - **Enhanced Authentication:** OOTB Django authorization was used on this project. I opted not to use allauth as all the bells-and-whistles were not warranted. The next iteration will use, e.g. allauth, in order to make use of social login. 
+  - **Enhanced Authentication:** OOTB Django authorization was used on this project. I opted not to use *allauth* as not all the bells-and-whistles were warranted in this version. The next iteration will use, e.g. *allauth*, in order to make use of social login. 
   - **Profile Page:** Enhanced Profile page. The ability to auto-fill payments based on profile information, etc. 
 
 <br/>
@@ -170,7 +170,7 @@ The database consists of the following tables, represented as follows:
 
 #### Heroku and AWS
 - [Heroku](https://www.heroku.com/) - to host the site.
-- [AWS](https://aws.amazon.com/) an S3 bucket is used to store static images/scripts.  
+- [AWS](https://aws.amazon.com/) - an S3 bucket is used to store static images/scripts.  
   
 #### Python
 - [Python 3.9](https://www.python.org/downloads/release/python-390/) - back-end programming language. 

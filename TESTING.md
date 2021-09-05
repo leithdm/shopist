@@ -25,7 +25,7 @@
 <br/>
 
 **Result:** the W3C Validator for HTML does not understand the Jinja templating syntax, therefore shows repeat Errors. 
-Aside from the Jinja warnings and errors, all other code is valid for each of the .html pages listed above. 
+Aside from the Jinja warnings and errors, all other code is valid for each of the .html pages in this project. 
 
 ----------
 
@@ -113,7 +113,7 @@ I created a comprehensive Testing Document to assess site functionality, usabili
 **Overview of Testing Procedure:**
 1. Testing Account Creation and Log in.
 2. Testing Checkout Functionality, and CRUD.
-3. Testing Make a Purchase
+3. Testing Make a Purchase.
 4. Testing Known Issues with the Checkout.
 5. Testing submission of a product Review.
 6. Testing Search Functionality. 
@@ -134,7 +134,7 @@ the following headers:
 3. Best Practices
 4. SEO
 
-**Result:** see summary results below for **Desktop *index.html***. 
+**Result:** see summary results below for **Desktop *store/index.html***. 
 
 ![Desktop](static/../testing_dml/lighthouse-desktop.png)
 
@@ -176,6 +176,6 @@ have been implemented.
 
 # Bugs
 
-Refer to Testing Document references some known bugs **[here](static/../testing_dml/manual-testing.pdf).**
+Refer to Testing Document **[here](static/../testing_dml/manual-testing.pdf).** as it highlights some known bugs.
 
 [Go back to README.md file](README.md).
