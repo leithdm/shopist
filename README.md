@@ -32,7 +32,7 @@
 
 ## Overview
 
-Shopist is an e-commerce site for purchasing boutique products. You can view the deployed site 
+Shopist is an e-commerce site for purchasing boutique furniture items. You can view the deployed site 
 [here](https://shopist-dml.herokuapp.com/). 
 
 <br/>
@@ -77,13 +77,15 @@ dataset about a particular domain*".
 
 ### Design
 
-- The overall concept was to have a minimalist yet modern color scheme, with a modern sans serif typography. 
+- The site has been designed using a modern and minimalist concept, with an overall clean, crisp look.
 
 <br/>
 
 #### Frameworks
 
 - [Django 3.2.5](https://docs.djangoproject.com/en/3.2/releases/3.2.5/) is a framework that is used to render the back-end Python with front-end Bootstrap. 
+- [Boostrap v4.5](https://getbootstrap.com/)
+Bootstrap is a free and open-source CSS framework directed at responsive, mobile-first front-end web development. It contains CSS- and (optionally) JavaScript-based design templates for typography, forms, buttons, navigation, and other interface components.
 
 <br/>
 
@@ -91,10 +93,7 @@ dataset about a particular domain*".
 
 Minimalist colors are employed. 
 
-- ![#212529](https://via.placeholder.com/15/212529/000000?text=+) `#212529` body text and background
-- ![#868e96](https://via.placeholder.com/15/868e96/000000?text=+) `#868e96` block quotes
-- ![#ffa500](https://via.placeholder.com/15/ffa500/000000?text=+) `#ffa500` main page jumbotron
-- ![#0085A1](https://via.placeholder.com/15/0085A1/000000?text=+) `#0085A1` hover
+- In keeping with the overall *modern* theme, I have opted for a bright color scheme, with plenty of white space. Primary and secondary site colors are inspired from the Logo i.e. yellow (#ebf65c), red(#df3939), olive-green(#a3ca87) with hints of grey. 
 
 <br/>
 
@@ -107,32 +106,21 @@ footer.
 
 #### Typography
 
-- [Google Fonts](https://fonts.google.com/) were used across the site, namely:
-  - [Lora](https://fonts.google.com/specimen/Lora) - for body text.   
-  - [Open Sans](https://fonts.google.com/specimen/Open+Sans) - for headings. 
+- The site incorporates [Google Fonts](https://fonts.google.com/) throughout the application. The primary font selected is [Source Sans Pro](https://fonts.google.com/specimen/Source+Sans+Pro?query=source+sans+pro) - a good fit for the modern and minimalistic theme.
 
 <br/>
 
 ### Wireframes
 
-- Wireframes were created using [Balsamiq Wireframes](https://balsamiq.com/) and can be viewed by clicking on links 
-  below.
+- Wireframes were created using [Balsamiq Wireframes](https://balsamiq.com/) and can be viewed [here](testing/../testing_dml/milestone-project-4.pdf)
 
 <br/>
-
-
-|    Home Page   |    Registration Page     |    Login Page    |    Individual Post    |    Profile Page    
-|    :----:      |    :----:                |    :----:        |    :----:             |    :----:        |
-|[Desktop/Mobile](wireframes/main.png)|[Desktop/Mobile](wireframes/registration.png)|[Desktop/Mobile](wireframes/login.png)|[Desktop/Mobile](wireframes/post.png)|[Desktop/Mobile](wireframes/profile.png)
-
-<br/>
-
 
 ### Schema
 
 The database consists of x3 collections, which we can represent as follows:
 
-![Schema](wireframes/schema.PNG)
+![Schema](testing/../testing_dml/schema.png)
 
 
 ---
