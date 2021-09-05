@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Shopist | Contact
+{% endblock %}
+
+{% block content %}
+<div class="jumbotron contact-jumbotron">
+    <div class="container">
+       <h1 class="display-2">CONTACT US</h1>
+       <h3>We respond to all enquiries within 24 hours</h3>
+    </div>
+ </div>
+
+    <!-- GET IN CONTACT -->
+    <main>
+        <div class="container mt-5 mb-5">
+            <div class="row">
+                <div class="col mb-3">
+                    <div class="card">
+                        <div class="card-header bg-custom text-black text-uppercase">
+                            <h5 class="section-heading-text">How can we help you?</h5>
+                        </div>
+                        <div class="card-body shadow">
+                            <form>
+                                <div class="form-group">
+                                    <label for="name">Enter your First Name <span class="contact-asterisk">*</span></label>
+                                    <input type="text" class="form-control" id="name" placeholder="Enter name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Enter your Email Address <span class="contact-asterisk">*</span></label>
+                                    <input type="email" class="form-control" id="email" placeholder="Enter email"
+                                        required>
+                                    <small id="email-note" class="form-text text-muted">We will never share your email
+                                        with anyone else.
+                                    </small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="enquiry">Enquiry Type</label>
+                                    <select id="enquiry" class="form-control">
+                                        <option>I have a billing enquiry</option>
+                                        <option>I have a general enquiry</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="message">Enter your Message <span class="contact-asterisk">*</span></label>
+                                    <textarea class="form-control" id="message" rows="12" required></textarea>
+                                </div>
+                                <div class="mx-auto">
+                                    <button type="submit" class="btn btn-header text-uppercase">Send Enquiry</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-12 col-md-4">
+                    <div class="card bg-light mb-3">
+                        <div class="card-header bg-white text-black text-uppercase">
+                            <i class="fa fa-home"></i> Office
+                        </div>
+                        <div class="card-body">
+                            <p>Shopist HQ,</p>
+                            <p>New York Times Building,</p>
+                            <p>620 8th Ave,</p>
+                            <p>New York NY, 10018</p>
+                            <p><span class="contact-phone-text">Tel. +999 1 868865</span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-8">
+                    <iframe class="google-map"
+                        src="https://maps.google.com/maps?q=New%20York%20Times%20Bldg,%20620%208th%20Ave,%20New%20York,%20NY%2010018,%20United%20States&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                         allowfullscreen="" aria-hidden="false" tabindex="0" title="Office Location">                   
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    {% endblock %}

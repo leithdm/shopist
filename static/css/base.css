@@ -98,6 +98,10 @@
     background: url('/static/media/hero.jpg') no-repeat center center;
 }
 
+.contact-jumbotron {
+    background: url('/static/media/contact.jpg') no-repeat center center;
+}
+
 /*------------------------------------*\
   #FOOTER
 \*------------------------------------*/
@@ -184,7 +188,12 @@ footer {
   .footer-contact-text:hover {
     color: #fbff1e;
   }
-
+  
+  .google-map {
+    width: 600px;
+    height: 450px; 
+    border:0;
+  }
 
 /*------------------------------------*\
   #MEDIA QUERIES
@@ -198,7 +207,7 @@ footer {
     .display-2 {
         margin-top: 4rem;
    }
-   
+
    .jumbotron {
         min-height: 500px;
     }
@@ -222,4 +231,11 @@ footer {
         width: 50px;
         height: 50px; 
     }
+
+    .google-map {
+        width: 300px;
+        height: 450px; 
+        border:0;
+      }
+    
 }

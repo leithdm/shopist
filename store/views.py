@@ -48,3 +48,8 @@ def productDetails(request, category_slug, product_slug):
 def search(request):
     products = Product.objects.filter(name__contains=request.GET['product'].lower())
     return render(request, 'store/index.html', {'products': products})
+
+
+#contact form
+def contact(request):
+    return render(request, 'store/contact.html')
