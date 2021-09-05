@@ -15,8 +15,10 @@ def profile(request):
     if request.user.is_authenticated:
         email = str(request.user.email)
         order_details = Order.objects.filter(emailAddress=email)
-        reviews = Review.objects.filter(user=request.user)    
-    return render(request, 'profiles/profile.html', {'order_details': order_details, 'reviews': reviews})
+        reviews = Review.objects.filter(user=request.user)
+    return render(request, 'profiles/profile.html', {
+        'order_details': order_details, 'reviews': reviews
+        })
 
 
 @login_required(redirect_field_name='next', login_url='login')
@@ -25,7 +27,9 @@ def viewOrder(request, order_id):
         email = str(request.user.email)
         order = Order.objects.get(id=order_id, emailAddress=email)
         order_items = OrderItem.objects.filter(order=order)
-    return render(request, 'profiles/order_detail.html', {'order': order, 'order_items': order_items})
+    return render(request, 'profiles/order_detail.html', {
+        'order': order, 'order_items': order_items
+        })
 
 
 @login_required(redirect_field_name='next', login_url='login')
@@ -33,5 +37,5 @@ def deleteReview(request, review_id):
     if request.user.is_authenticated:
         review_to_delete = Review.objects.get(id=review_id)
         review_to_delete.delete()
-        reviews = Review.objects.filter(user=request.user)    
+        reviews = Review.objects.filter(user=request.user)
     return render(request, 'profiles/profile.html', {'reviews': reviews})

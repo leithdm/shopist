@@ -162,7 +162,6 @@ The database consists of the following tables, represented as follows:
 - [Balsamiq](https://balsamiq.com/) - used to create the project's wireframes.
 - [JavaScript ES6](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 - [Google Fonts](https://fonts.google.com/) - used to provide font styling.
-- [Am I Responsive?](http://ami.responsivedesign.is/) - used to show site responsiveness.
 
 ### Back-End Technologies
 

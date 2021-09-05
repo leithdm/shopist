@@ -7,11 +7,15 @@ from django.core.paginator import Paginator, EmptyPage, InvalidPage
 def home(request, category_slug=None):
     category_page = None
 
-    # if there is a category slug, filter the home page to show all products of that category
-    if category_slug != None:
+    # if there is a category slug,
+    # filter the home page to show all products of that category
+    if category_slug is not None:
         category_page = get_object_or_404(Category, slug=category_slug)
         # find all products that belong to a category_page
-        products = Product.objects.filter(category=category_page, available=True)
+        products = Product.objects.filter(
+            category=category_page,
+            available=True
+            )
     else:
         # if the category field is empty, display all available products
         products = Product.objects.all().filter(available=True)
@@ -27,12 +31,18 @@ def home(request, category_slug=None):
     except(EmptyPage, InvalidPage):
         products = paginator.page(paginator.num_pages)
 
-    return render(request, 'store/index.html', {'category': category_page, 'products': products})
+    return render(request, 'store/index.html', {
+        'category': category_page,
+        'products': products
+        })
 
 
 def productDetails(request, category_slug, product_slug):
     try:
-        product = Product.objects.get(category__slug=category_slug, slug=product_slug)
+        product = Product.objects.get(
+            category__slug=category_slug,
+            slug=product_slug
+            )
     except Exception as e:
         raise e
 
@@ -40,17 +50,20 @@ def productDetails(request, category_slug, product_slug):
         Review.objects.create(product=product,
                               user=request.user,
                               content=request.POST['content'])
-    reviews = Review.objects.filter(product=product)    
-    return render(request, 'store/product_details.html', {'product': product, 'reviews': reviews})
+    reviews = Review.objects.filter(product=product)
+    return render(request, 'store/product_details.html', {
+        'product': product,
+        'reviews': reviews
+        })
 
 
-#ability to search using 'search' field on nav-bar
+# ability to search using 'search' field on nav-bar
 def search(request):
     products = Product.objects.filter(name__icontains=request.GET['product'])
     print(products)
     return render(request, 'store/index.html', {'products': products})
 
 
-#contact form
+# contact form
 def contact(request):
     return render(request, 'store/contact.html')

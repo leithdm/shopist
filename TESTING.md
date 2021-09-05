@@ -38,13 +38,7 @@
 <br/>
 
 **Result:** the W3C Validator for HTML does not understand the Jinja templating syntax, therefore shows repeat Errors. 
-See sample output below for `store/index.html`. 
 Aside from the Jinja warnings and errors, all other code is valid for each of the .html pages listed above. 
-
-![Home Page HTML Validator](static/testing/index.html-testing.PNG)
-
-
-
 
 ----------
 
@@ -58,12 +52,7 @@ Aside from the Jinja warnings and errors, all other code is valid for each of th
 
 ![CSS Validator](static/testing/css-testing.PNG)
 
-**Result:** No Errors, 6 warnings.
-
-
-![CSS Warnings](static/testing/css-warnings-testing.PNG)
-
-<br/>
+**Result:** No Errors Found
 
 ----------
 

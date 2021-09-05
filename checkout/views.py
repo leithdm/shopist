@@ -7,7 +7,11 @@ from django.contrib.auth.decorators import login_required
 import stripe
 
 
-''' Get the cart_id '''
+'''
+Get the cart_id
+'''
+
+
 @login_required(redirect_field_name='next', login_url='login')
 def get_cart_id(request):
     cart = request.session.session_key
@@ -16,41 +20,49 @@ def get_cart_id(request):
     return cart
 
 
-''' Add a product to the cart, and update its quantity '''
+'''
+Add a product to the cart, and update its quantity
+'''
+
+
 @login_required(redirect_field_name='next', login_url='login')
 def add_cart(request, product_id):
     product = Product.objects.get(id=product_id)
     try:
         cart = Cart.objects.get(cart_id=get_cart_id(request))
-    
-    # create an empty cart if no cart exists in the session. Use session_key as id. 
+    # create an empty cart if no cart exists in the session.
     except Cart.DoesNotExist:
         cart = Cart.objects.create(
-            cart_id = get_cart_id(request)
+            cart_id=get_cart_id(request)
         )
         cart.save()
     # if cartItem exists, update its qty
     try:
         cart_item = CartItem.objects.get(product=product, cart=cart)
-        #only add to cart if have available stock
+        # only add to cart if have available stock
         if cart_item.quantity < cart_item.product.stock:
                 cart_item.quantity += 1
         cart_item.save()
 
     except CartItem.DoesNotExist:
-        # create a new cartItem object from the product and cart object, set qty to 1
+        # create a new cartItem object from the product and
+        # cart object, set qty to 1
         cart_item = CartItem.objects.create(
-            product = product,
-            quantity = 1,
-            cart = cart, 
+            product=product,
+            quantity=1,
+            cart=cart,
         )
         cart_item.save()
-
         # will update all cart items in current session
     return redirect('cart_detail')
 
 
-''' Retrieve all cartItems in the current session, and calculate total cost of all cart items in the cart'''
+'''
+Retrieve all cartItems in the current session,
+and calculate total cost of all cart items in the cart
+'''
+
+
 @login_required(redirect_field_name='next', login_url='login')
 def cart_detail(request, total=0, counter=0, cart_items=None):
     # try to get the Cart object from the current session
@@ -66,7 +78,7 @@ def cart_detail(request, total=0, counter=0, cart_items=None):
     except ObjectDoesNotExist:
         pass
 
-    #stripe API
+    # stripe API
     stripe.api_key = settings.STRIPE_SECRET_KEY
     stripe_total = int(total * 100)
     description = 'Shopis-Store - New Order'
@@ -111,7 +123,7 @@ def cart_detail(request, total=0, counter=0, cart_items=None):
                     shippingPostcode=shippingPostcode,
                     shippingCountry=shippingCountry
                 )
-                #after receiving order, save to the database
+                # after receiving order, save to the database
                 order_details.save()
                 for order_item in cart_items:
                     or_item = OrderItem.objects.create(
@@ -122,39 +134,55 @@ def cart_detail(request, total=0, counter=0, cart_items=None):
                     )
                     or_item.save()
 
-                    #reduce the stock that we have
+                    # reduce the stock that we have
                     products = Product.objects.get(id=order_item.product.id)
-                    products.stock = int(order_item.product.stock - order_item.quantity)
+                    products.stock = int(
+                        order_item.product.stock - order_item.quantity
+                        )
                     products.save()
                     order_item.delete()
-                    print('**The order has been successfully created**')
                 return redirect('thank_you_page', order_details.id)
-            #if the object does not exist, simply do a pass to ignore it
+            # if the object does not exist, simply do a pass to ignore it
             except ObjectDoesNotExist:
                 pass
         except stripe.error.CardError as e:
             return False, e
-    return render(request, 'checkout/index.html', dict(cart_items=cart_items, total=total, counter=counter, data_key=data_key, stripe_total=stripe_total, description=description))
+    return render(request, 'checkout/index.html', dict(
+        cart_items=cart_items,
+        total=total,
+        counter=counter,
+        data_key=data_key,
+        stripe_total=stripe_total,
+        description=description)
+        )
 
 
-''' Remove a cartItem from the cart '''
+'''
+Remove a cartItem from the cart
+'''
+
+
 @login_required(redirect_field_name='next', login_url='login')
 def cart_removeItem(request, product_id):
     cart = Cart.objects.get(cart_id=get_cart_id(request))
     product = get_object_or_404(Product, id=product_id)
     cart_item = CartItem.objects.get(product=product, cart=cart)
-    #if qty is >1, then decrement by 1
+    # if qty is >1, then decrement by 1
     if cart_item.quantity > 1:
         cart_item.quantity -= 1
         cart_item.save()
-    #if qty=0, remove it from the cart
+    # if qty=0, remove it from the cart
     else:
         cart_item.delete()
-    #redirect to 'cart_detail' to update the UI
+    # redirect to 'cart_detail' to update the UI
     return redirect('cart_detail')
 
 
-''' Trash a cartItem from the cart '''
+'''
+Trash a cartItem from the cart
+'''
+
+
 @login_required(redirect_field_name='next', login_url='login')
 def cart_trashItem(request, product_id):
     cart = Cart.objects.get(cart_id=get_cart_id(request))
@@ -164,9 +192,17 @@ def cart_trashItem(request, product_id):
     return redirect('cart_detail')
 
 
-''' Redirect user to a thank-you page after submitting order '''
+'''
+Redirect user to a thank-you page after submitting order
+'''
+
+
 @login_required(redirect_field_name='next', login_url='login')
 def thank_you_page(request, order_id):
     if order_id:
-        customer_order = get_object_or_404(Order, id=order_id)
-    return render(request, 'checkout/thank_you.html', {'customer_order': customer_order})
+        customer_order = get_object_or_404(
+            Order, id=order_id
+            )
+    return render(request, 'checkout/thank_you.html', {
+        'customer_order': customer_order
+        })

@@ -6,7 +6,6 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, authenticate, logout
 
 
-
 def signupView(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
@@ -14,7 +13,6 @@ def signupView(request):
             form.save()
             username = form.cleaned_data.get('username')
             signup_user = User.objects.get(username=username)
-            #save the new user into the customers group
             customer_group = Group.objects.get(name='Customer')
             customer_group.user_set.add(signup_user)
             login(request, signup_user)
