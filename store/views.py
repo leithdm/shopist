@@ -46,7 +46,8 @@ def productDetails(request, category_slug, product_slug):
 
 #ability to search using 'search' field on nav-bar
 def search(request):
-    products = Product.objects.filter(name__contains=request.GET['product'].lower())
+    products = Product.objects.filter(name__icontains=request.GET['product'])
+    print(products)
     return render(request, 'store/index.html', {'products': products})
 
 
