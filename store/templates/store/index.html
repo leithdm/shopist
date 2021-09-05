@@ -19,7 +19,20 @@ Home
         <div class="row">
             {% if products|length > 0 %}
             {% for product in products %}
-                <div class="mx-auto col-md-6 col-lg-4">
+                    <div class="col-12 col-md-4">
+                        <div class="card border-0 shadow mb-5">
+                            <a href="{{product.get_url}}">
+                                <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
+                            </a>
+                            <div class="card-body text-center">
+                                <h4 class="card-title">{{product.name}}</h4>
+                                <h5 class="mb-0">
+                                    <span class="mr-1">$</span>{{ product.price }}
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
+                <!-- <div class="mx-auto col-md-6 col-lg-4">
                     <div class="card mb-5 border-transparent">
                         <div class="p-2">
                             <a href="{{product.get_url}}">
@@ -35,7 +48,7 @@ Home
                             </h5>
                         </div>
                     </div>
-                </div>
+                </div> -->
             {% endfor %}
             {% else %}
             <div class="mx-auto col-md-6 col-lg-3">
