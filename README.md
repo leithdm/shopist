@@ -1,6 +1,4 @@
 
-
-
 - [Overview](#overview)
 - [UX](#ux)
   - [User Stories](#user-stories)
@@ -24,7 +22,6 @@
 - [Deployment](#deployment)
 - [Credits](#credits)
   - [Media](#media)
-  - [Acknowledgments](#acknowledgments)
 
 <br/>
 
@@ -93,7 +90,7 @@ Bootstrap is a free and open-source CSS framework directed at responsive, mobile
 
 Minimalist colors are employed. 
 
-- In keeping with the overall *modern* theme, I have opted for a bright color scheme, with plenty of white space. Primary and secondary site colors are inspired from the Logo i.e. yellow (#ebf65c), red(#df3939), olive-green(#a3ca87) with hints of grey. 
+- In keeping with the overall *modern* theme, I have opted for a bright color scheme, with plenty of white space. Primary and secondary site colors are inspired from the Logo i.e. yellow (#ebf65c), red(#df3939), with hints of grey. 
 
 <br/>
 
@@ -118,7 +115,7 @@ footer.
 
 ### Schema
 
-The database consists of x3 collections, which we can represent as follows:
+The database consists of the following tables, represented as follows:
 
 ![Schema](testing/../testing_dml/schema.png)
 
@@ -128,22 +125,23 @@ The database consists of x3 collections, which we can represent as follows:
 ## Features
 
 ### Existing Features
-  - **Register Account:** Anybody can register for free and create their own unique account. There is authentication and authorization to check certain criteria is met before an account is validated. All passwords 
-    are hashed for security purposes.
+  - **Register Account:** Anybody can register for free and create their own unique account. There is authentication and authorization to check certain criteria is met before an account is validated. All passwords are hashed for security purposes.
   - **Log In to Account:** For existing users, there is more authentication and authorization incorporated to check 
     that the hashed passwords and username match the database.
   - **Log Out of Account:** Users can easily log out of their account by clicking the logout button. 
   - **View All Products:** On the *index* page, all products are initially displayed, based on date of submission. Pagination is enabled. 
   - **Search Products:** The user can search for a relevant products, searched by product name. 
-  - **CRUD Profile:** A registered user can create, read, update and delete their profile details. They can also create, read, delete their reviews. 
-  - **Read Purchase History:** A registered user can read their purchase history.
+  - **CRUD Functionality:** A registered user can create, read, update and delete their shopping cart. A user can create, read, delete their reviews. An admin has the ability to CRUD Users, Cart Items, Carts, Orders, Categories, Products, and Reviews
+  - **Purchase:** A registered User can use Stripe (test card details) to make purchases.  
+  - **Read Purchase History:** A registered user can view their entire purchase history.
 
 <br/>
 
 ### Future Features
-A full list of future features **can be viewed in the 
-[Product Backlog](https://github.com/leithdm/milestone-project-3/projects/1)**, but we will briefly mention some 
-of them here:
+  - **Stripe:** Enhanced Stripe functionality. A basic form of Stripe was implemented on this version of the project. Customer forms, enhanced validations, webhooks, better feedback, etc will be used in next iteration. 
+  - **Contact Form:** The contact form should POST, and send comfirmation email upon receipt.
+  - **Enhanced Authentication:** OOTB Django authorization was used on this project. I opted not to use allauth as all the bells-and-whistles were not warranted. The next iteration will use, e.g. allauth, in order to make use of social login. 
+  - **Profile Page:** Enhanced Profile page. The ability to auto-fill payments based on profile information, etc. 
 
 <br/>
 
@@ -160,6 +158,8 @@ of them here:
 
 - [HTML5](https://en.wikipedia.org/wiki/HTML5) - used to provide content and structure.
 - [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets) - used to provide styling.
+- [Bootstrap](https://getbootstrap.com/) - used to create the layout of the project.
+- [Balsamiq](https://balsamiq.com/) - used to create the project's wireframes.
 - [JavaScript ES6](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 - [Google Fonts](https://fonts.google.com/) - used to provide font styling.
 - [Am I Responsive?](http://ami.responsivedesign.is/) - used to show site responsiveness.
@@ -203,7 +203,7 @@ Next, there's a series of steps to take in order to proceed with local deploymen
 - Clone this GitHub repository by either clicking the green Clone or download button and downloading the project as a 
   zip-file (remember to unzip it first), or by entering the following into the Git CLI terminal:
 
-`git clone https://github.com/leithdm/medium-bloggy.git`
+`git clone https://github.com/leithdm/shopist.git`
 
 - Navigate to the correct file location after unpacking the files.
 
@@ -279,12 +279,5 @@ USE_AWS: True
   [Alex Block](https://unsplash.com/photos/oH34atgXJsQ), 
   [Rohit Tandon](https://unsplash.com/photos/9wg5jCEPBsw), 
   [KiwiHug](https://unsplash.com/photos/MS9Tnh3if1o)
-  
-- [Logomakr](https://logomakr.com/) was used to create the site logo. 
 
 <br/>
-
-### Acknowledgments
-
-- [Precious Ijege](https://www.linkedin.com/in/precious-ijege-908a00168/?originalSubdomain=ng) - for his mentorship 
-  and guidance.
