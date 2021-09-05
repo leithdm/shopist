@@ -19,58 +19,18 @@ Home
         <div class="card-columns">
             {% if products|length > 0 %}
             {% for product in products %}
-                    <!-- <div class="col-12 col-md-4">
-                        <div class="card border-0 shadow mb-5">
-                            <a href="{{product.get_url}}">
-                                <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
-                            </a>
-                            <div class="card-body text-center">
-                                <h4 class="card-title">{{product.name}}</h4>
-                                <h5 class="mb-0">
-                                    <span class="mr-1">$</span>{{ product.price }}
-                                </h5>
-                            </div>
-                        </div>
-                    </div> -->
-
-                    <div class="card mb-4 border-0 shadow">
-                        <img class="card-img-top" src="{{ product.image.url }}"
-                            alt="{{ product.name }}">
-                        <div class="card-body">
-                            <p class="card-text">{{product.name}}</p>
-                            <h5 class="mb-0">
-                                <span class="mr-1">$</span>{{ product.price }}
-                            </h5>
-                            <!-- <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <a class="btn btn-sm btn-outline-dark"
-                                        href="{{product.get_url}}"
-                                        role="button" target="_blank">Source Code
-                                    </a>
-                                </div>
-                                <span class="text-black-50"><i class="fab fa-html5"></i></span>
-                            </div> -->
-                        </div>
-                    </div>
-
-
-                <!-- <div class="mx-auto col-md-6 col-lg-4">
-                    <div class="card mb-5 border-transparent">
-                        <div class="p-2">
-                            <a href="{{product.get_url}}">
-                                <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
-                            </a>
-                        </div>
-                        <div class="card-footer d-flex justify-content-between border-transparent background-transparent">
-                            <p class="font-italic mb-2">
-                                {{product.name}}
-                            </p>
-                            <h5 class="mb-0">
-                                <span class="mr-1">$</span>{{ product.price }}
-                            </h5>
-                        </div>
-                    </div>
-                </div> -->
+            <div class="card mb-4 border-0 shadow">
+                <a href="{{ product.get_url }}">
+                <img class="card-img-top" src="{{ product.image.url }}"
+                    alt="{{ product.name }}">
+                </a>
+                <div class="card-body">
+                    <p class="card-text">{{product.name}}</p>
+                    <h5 class="mb-0">
+                        <span class="mr-1">$</span>{{ product.price }}
+                    </h5>
+                </div>
+            </div>
             {% endfor %}
             {% else %}
             <div class="mx-auto col-md-6 col-lg-3">
