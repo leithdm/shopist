@@ -5,39 +5,97 @@ Profile Page
 {% endblock %}
 
 {% block content %}
-  <div class="text-center">
-    <br>
-    <h1 class="text-center product_title">
-      Your Order History
-    </h1>
-    <br>
-    {% if order_details %}
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>Order Number</th>
-            <th>Order Date</th>
-            <th>Total Amount</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for order in order_details %}
-            <tr>
-              <td>{{ order.id }}</td>
-              <td>{{ order.created|date:"d M Y" }}</td>
-              <td>{{ order.total }}</td>
-              <td><a href="{% url 'order_detail' order.id %}">View Order</a></td>
-            </tr>
-          {% endfor %}
-        </tbody>
-      </table>
-    {% else %}
-      <p>You have not placed any orders yet.
-        <br><br>
-        <a href="{% url 'home' %}" class="btn btn-secondary">Continue shopping</a>
-      </p>
-    {% endif %}
+<div class="jumbotron jumbotron-profile text-center">
+  <div class="container">
+     <h1 class="display-2">{{ request.user }}'s Profile Page</h1>
   </div>
-  <br><br>
-{% endblock %}
+</div>
+<div class="row">
+  <div class="container">
+    <h1 class="product-title">
+      Your Reviews
+    </h1>
+    <div class="table-responsive">
+       <table class="table table-striped table-sm">
+          <thead>
+             <tr class="table-row">
+                <th>Product</th>
+                <th>Review</th>
+             </tr>
+          </thead>
+          <tbody>
+             {% for review in reviews %}
+             <tr class="table-text">
+                <td>{{ review.product }}</td>
+                <td>{{ review.content }}</td>
+                <td>
+                   <button type="button" class="btn btn-outline-danger" data-toggle="modal"
+                      data-target="#delete{{ review.id }}">
+                   Delete
+                   </button>
+                   <!-- MODAL -->
+                   <div class="modal fade" id="delete{{ review.id }}" tabindex="-1" role="dialog"
+                      aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-centered" role="document">
+                         <div class="modal-content">
+                            <div class="modal-header">
+                               <h5 class="modal-title" id="exampleModalLongTitle">Are you sure you want to
+                                  delete this review?
+                               </h5>
+                               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                               <span aria-hidden="true">&times;</span>
+                               </button>
+                            </div>
+                            <div class="modal-footer">
+                               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close
+                               </button>
+                               <a class="btn btn-outline-danger"
+                               href="{% url 'delete_review' review.id %}">Delete Review
+                            </a>
+                            </div>
+                         </div>
+                      </div>
+                   </div>
+                </td>
+             </tr>
+             {% endfor %}
+          </tbody>
+       </table>
+    </div>
+    <div>
+      <h1 class="product-title">Your Order History</h1>
+      {% if order_details %}
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Order Number</th>
+              <th>Order Date</th>
+              <th>Total Amount</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for order in order_details %}
+              <tr>
+                <td>{{ order.id }}</td>
+                <td>{{ order.created|date:"d M Y" }}</td>
+                <td>{{ order.total }}</td>
+                <td><a href="{% url 'order_detail' order.id %}">View Order</a></td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      {% else %}
+        <p>You have not placed any orders yet.
+          <br><br>
+          <a href="{% url 'home' %}" class="btn btn-secondary">Continue shopping</a>
+        </p>
+      {% endif %}
+    </div>
+    <br><br>
+  </div>
+</div>
+  {% endblock %}
+
+
+  

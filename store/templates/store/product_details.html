@@ -46,7 +46,7 @@ Product
           </form>
         </div>
         {% endif %}
-      
+        
         {% if reviews.count > 0 %}
         <ul class="list-group list-group-flush">
          {% for review in reviews %}
@@ -54,7 +54,11 @@ Product
              <p class="card-text">{{review.content}}</p>
              </li>
          {% endfor %}
-       </ul>
+        </ul>
+         {% else %}
+         <li class="list-group-item"> <h5>No reviews yet ! <i class="far fa-frown"></i></h5>
+          <p class="card-text">Be the first to leave one.</p>
+          </li>
         {% endif %}
       </div>
 </div>

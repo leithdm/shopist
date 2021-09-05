@@ -41,18 +41,18 @@
     background: transparent;
 } 
 
-.product_title {
+.product-title {
     font-size: 2rem;    
     text-transform: uppercase;
     padding-top: 2rem;
     padding-bottom: 0.8rem;
 }
 
-.product_text {
+.product-text {
     padding-right: 2rem; 
 }
 
-.product_description {
+.product-description {
     font-size: 1rem;    
     text-transform: uppercase;    
 }
@@ -100,6 +100,11 @@
 
 .contact-jumbotron {
     background: url('/static/media/contact.jpg') no-repeat center center;
+}
+
+.jumbotron-profile {
+    background-size: cover;
+    min-height: 300px; 
 }
 
 /*------------------------------------*\
