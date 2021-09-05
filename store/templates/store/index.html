@@ -6,25 +6,20 @@ Home
 {% endblock %}
 
 {% block content %}
-<div class="container-fluid">
-    <div class="row">
-        <img src="{% static 'store/images/hero.jpg' %}" style="width: 100%" alt="">
+<main role="main">
+    <div class="jumbotron main-jumbotron">
+       <div class="container">
+          <h1 class="display-2">SHOPIST</h1>
+          <h3>Your Guestroom Furniture on a Budget</h3>
+          <a class="btn btn-header btn-lg text-uppercase" href="{% url 'signup' %}" role="button">Get started</a>
+       </div>
     </div>
-</div>
-
 <div class="py-4">
     <div class="container">
         <div class="row">
-            <div class="col-10 mx-auto my-2 text-center">
-                <h1 class="mb-5 mt-3">Gallery of Products</h1>
-            </div>
-        </div>
-    </div>
-
-    <div class="container">
-        <div class="row">
+            {% if products|length > 0 %}
             {% for product in products %}
-                <div class="col-9 mx-auto col-md-6 col-lg-3">
+                <div class="mx-auto col-md-6 col-lg-3">
                     <div class="card mb-5 border-transparent">
                         <div class="p-2">
                             <a href="{{product.get_url}}">
@@ -36,12 +31,18 @@ Home
                                 {{product.name}}
                             </p>
                             <h5 class="mb-0">
-                                <span class="mr-1">€</span>{{ product.price }}
+                                <span class="mr-1">$</span>{{ product.price }}
                             </h5>
                         </div>
                     </div>
                 </div>
             {% endfor %}
+            {% else %}
+            <div class="mx-auto col-md-6 col-lg-3">
+                <h5 class="text-center">No Results Found.</h5>
+                <hr>
+            </div>
+            {% endif %}
         </div>
         <div class="col-10 mx-auto my-2 text-center">
             {% if products.paginator.num_pages > 1 %}

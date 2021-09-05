@@ -1,6 +1,37 @@
-body {
-    background-color: rgb(241, 237, 237)
-}
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&display=swap');
+
+/*------------------------------------*\
+  #COLORS
+\*------------------------------------*/
+
+.bg-color-white {
+    background-color: #fff;
+  }
+
+/*------------------------------------*\
+  #GLOBAL SETTINGS
+\*------------------------------------*/
+
+* {
+    font-family: "Source Sans Pro", sans-serif, arial;
+  }
+
+  html {
+      box-sizing: border-box;
+  }
+  
+  body {
+      margin: 0;
+      background-color: rgb(241, 237, 237);
+  }
+
+.navbar-nav .nav-item .nav-link:hover {
+    color: #df3939;
+  }
+    
+  .nav-link-current {
+    color: #df3939;
+  }
 
 .border-transparent {
     border-color: transparent;
@@ -26,12 +57,169 @@ body {
     text-transform: uppercase;    
 }
 
-/* form css */
-.errorlist li {
-    color: red;
-    font-weight: bold;
+.btn-header {
+    color: #1a1919;
+    background-color: #ebf65c;
+    border-color: #aab510;
+  }
+  
+  .btn-header:hover,
+  .btn-header:focus,
+  .btn-header:active,
+  .btn-header.active {
+    color: #1a1919;
+    background-color: #cdda1f;
+    border-color: #1a1919;
+  }
+  
+  .btn-outline-dark:hover,
+  .btn-outline-dark:focus,
+  .btn-outline-dark:active,
+  .btn-outline-dark.active {
+    color: #1a1919;
+    background-color: #cdda1f;
+    border-color: #1a1919;
+  }
+
+.cart-image {
+    width: 100px;
+    height: 100px; 
 }
 
-.custom_div {
-    margin-bottom: 24px; 
+/*------------------------------------*\
+  #JUMBOTRON
+\*------------------------------------*/
+
+.jumbotron {
+    background-size: cover;
+    min-height: 600px;
+}
+.main-jumbotron {
+    background: url('/static/media/hero.jpg') no-repeat center center;
+}
+
+/*------------------------------------*\
+  #FOOTER
+\*------------------------------------*/
+
+footer {
+    color: #fafafa;
+  }
+  
+  .footer {
+    padding: 20px 0;
+    background: #252525;
+  }
+  
+  footer ul {
+    padding-left: 0;
+    list-style: none;
+  }
+  
+  .footer-text {
+    color: black;
+  }
+  
+  .footer-section {
+    padding: 20px;
+    margin-bottom: 40px;
+  }
+  
+  .footer-section li a {
+    color: #fbff1e;
+  }
+  
+  .footer-section li a:hover {
+    color: #df3939;
+  }
+  
+  .footer-section-title {
+    margin-bottom: 20px;
+  }
+  
+  .footer-copyright {
+    background: #222;
+    padding: 10px 0;
+  }
+  
+  .footer-copyright p {
+    color: #969696;
+    margin: 2px 0 0;
+  }
+  
+  ul.social-footer {
+    margin: 0;
+    padding: 0;
+    width: auto;
+  }
+  
+  ul.social-footer li {
+    display: inline-block;
+    padding: 0;
+  }
+  
+  ul.social-footer li a {
+    display: block;
+    text-align: center;
+    margin-right: 5px;
+  }
+  
+  .social-image {
+    height: 30px;
+    width: 30px;
+  }
+  
+  .social-image:hover {
+    border: 1px solid white;
+  }
+  
+  .footer-hr {
+    background-color: white;
+  }
+  
+  .footer-contact-text {
+    color: white;
+  }
+  
+  .footer-contact-text:hover {
+    color: #fbff1e;
+  }
+
+
+/*------------------------------------*\
+  #MEDIA QUERIES
+\*------------------------------------*/
+ @media screen and (max-width: 992px) {
+    .display-2 {
+        margin-top: 2rem;
+   }
+}
+@media screen and (max-width: 768px) {
+    .display-2 {
+        margin-top: 4rem;
+   }
+   
+   .jumbotron {
+        min-height: 500px;
+    }
+}
+@media screen and (max-width: 576px) {
+    .display-2 {
+        font-size: 3rem;
+        margin-top: 4rem;
+    }
+
+    .btn-header {
+        font-size: 1rem; 
+    }
+
+    .jumbotron {
+        background-size: auto;
+        min-height: 300px;
+    }
+
+    .cart-image {
+        width: 50px;
+        height: 50px; 
+    }
 }

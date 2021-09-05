@@ -1,48 +1,52 @@
-<nav class="navbar navbar-expand-md navbar-light bg-light">
-    <a href="/" class="navbar-brand"><i class="fab fa-shopify text-primary fa-2x"></i></a>
+<header class="my-5">
+<nav class="navbar navbar-expand-md navbar-light fixed-top bg-color-white">
+    <a href="/" class="navbar-brand"><i class="fab fa-shopify fa-2x"></i></a>
     <button type="button" class="navbar-toggler bg-light" data-toggle="collapse" 
     data-target="#navbarSupportedContent" name="button"><span class="navbar-toggler-icon"></span></button>
     <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <ul class="navbar-nav">
-        <li class="nav-item dropdown"><a class="nav-link dropdown-toggle px-4 font-weight-bold" href="" data-toggle="dropdown">Categories</a>
+        <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="" data-toggle="dropdown">SHOP NOW</a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="{% url 'home' %}">All Products</a>
+                <a class="dropdown-item nav-link" href="{% url 'home' %}">ALL PRODUCTS</a>
                 {% for category in links %}
-                <a class="dropdown-item" href="{{ category.get_url }}">{{ category.name }}</a>
+                <a class="dropdown-item nav-link" href="{{ category.get_url }}">{{ category.name }}</a>
                 {% endfor %}
             </div>
         </li>
-
-        <li class="nav-item"><a class="nav-link px-4 font-weight-bold" href="">Contact</a></li>
-        <li class="nav-item"><a class="nav-link px-4 font-weight-bold" href="">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="">CONTACT
+            <span class="sr-only">(current)</span>
+        </a></li>
 
         {% if request.user.is_authenticated and request.user.first_name %}
-        <li class="nav-item dropdown">
-            <a class="nav-link font-weight-bold px-3" href="{% url 'profile' %}">
-            Welcome, {{ request.user.first_name }} <i class="fas fa-user circle"></i>
+        <li class="nav-item">
+            <a class="nav-link text-uppercase" href="{% url 'profile' %}">
+            {{ request.user.first_name }} <i class="fas fa-user circle"></i>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link font-weight-bold px-3" href="{% url 'logout' %}">
-            Sign Out
+            <a class="nav-link" href="{% url 'logout' %}">
+            SIGN OUT
+            <span class="sr-only">(current)</span>
             </a>
         </li>
         {% else %}
         <li class="nav-item">
-            <a class="nav-link font-weight-bold px-3" href="{% url 'signup' %}">
-            Sign Up
+            <a class="nav-link" href="{% url 'signup' %}">
+            SIGN UP
+            <span class="sr-only">(current)</span>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link font-weight-bold px-3" href="{% url 'login' %}">
-            Sign In
+            <a class="nav-link" href="{% url 'login' %}">
+            SIGN IN
+            <span class="sr-only">(current)</span>
             </a>
         </li>
         {% endif %}       
        
         {% if item_count > 0 %}
         <li class="nav-item">
-            <a class="nav-link px-4 font-weight-bold" href="{%  url 'cart_detail' %}">
+            <a class="nav-link" href="{%  url 'cart_detail' %}">
                 <i class="fas fa-shopping-cart"></i>({{ item_count }})</a></li>
         {% endif %}
     </ul>
@@ -60,3 +64,4 @@
     </form>
     </div>
 </nav>
+</header>

@@ -7,22 +7,7 @@ Sign in
 
 {% block content %}
   <div class="container">
-    <br>
-    <h1 class="product_title text-center">
-      Login or Create a New Account
-    </h1>
-    <div class="row">
-      <div class="col-12 col-sm-12 col-lg-6 text-center custom_div">
-        <br>
-        <h2 class="product_title">
-          New Customer
-        </h2>
-        <br>
-        <p>When you create an account, you can see your Profile.</p>
-        <br>
-        <a href="{% url 'signup' %}" class="btn btn-secondary">Create New Account</a>
-      </div>
-      <div class="col-12 col-sm-12 col-md-12 col-lg-6 bg-light">
+      <div class="col-sm-9 col-md-6 col-lg-5 mx-auto bg-light">
         <div>
           <br>
           <h2 class="product_title">
@@ -31,7 +16,7 @@ Sign in
           <form method="post">
             {% csrf_token %}
             <p>{{ form | crispy }}</p>
-            <button type="submit" name="button" class="btn btn-secondary">Sign in</button>
+            <button type="submit" name="button" class="btn btn-success btn-lg text-uppercase">Sign in</button>
           </form>
           <br>
         </div>

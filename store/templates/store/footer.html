@@ -1,5 +1,63 @@
-<footer class="bg-light mt-5 p-5">
-    <div class="container">
-        <p class="lead text-center">Copyright &copy; 2021 shopist.io</p>
-    </div>
-</footer>
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                        <div class="footer-section">
+                            <h5 class="widget-title text-uppercase">Shopist</h5>
+                            <hr class="footer-hr">
+                            <p>Where budget meets style.</p>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                        <div class="footer-section">
+                            <h5 class="widget-title">Quick Links</h5>
+                            <hr class="footer-hr">
+                            <ul>
+                                {% for category in links %}
+                                <li class="nav-item">
+                                    <a class="nav-link nav-item" href="{{ category.get_url }}">{{ category.name }}</a>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                        <div class="footer-section">
+                            <h5 class="widget-title">Contact Us</h5>
+                            <hr class="footer-hr">
+                            <p>
+                                <a href="mailto:enquiries@shopist.com" class="footer-contact-text"
+                                    target="_blank">enquiries@shopist.com
+                                </a>
+                            </p>
+                            <ul class="social-footer">
+                                <li>
+                                    <a href="https://twitter.com/">
+                                        <img src="/static/media/twitter.png" alt="Image of Twitter"
+                                            class="img-fluid social-image">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://linkedin.com/">
+                                        <img src="/static/media/linkedin.png" alt="Image of LinkedIn"
+                                            class="img-fluid social-image">
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center footer-text">
+                        <p>Copyright &copy; Shopist <script>document.write(new Date().getFullYear());</script></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
