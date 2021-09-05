@@ -24,19 +24,6 @@
 
 <br/>
 
-- [Home Page (store/index.html)]()
-- [Footer (store/footer.html)]()
-- [Navbar (store/navbar.html)]()  
-- [Product Details (store/product_details.html)]()  
-- [Login (author/login.html)]()
-- [Signup (author/signup.html)]()
-- [Profile (profiles/profile.html)]()
-- [Profile (profiles/order_detail.html)]()
-- [Checkout Index (checkout/index.html)]()
-- [Checkout ThankYou (checkout/thank_you.html)]()
-
-<br/>
-
 **Result:** the W3C Validator for HTML does not understand the Jinja templating syntax, therefore shows repeat Errors. 
 Aside from the Jinja warnings and errors, all other code is valid for each of the .html pages listed above. 
 
@@ -50,7 +37,7 @@ Aside from the Jinja warnings and errors, all other code is valid for each of th
 
 <br/>
 
-![CSS Validator](static/testing/css-testing.PNG)
+![CSS Validator](static/testing_dml/../../testing_dml/css-testing.png)
 
 **Result:** No Errors Found
 
@@ -121,15 +108,14 @@ all the major browsers, except for Internet Explorer 6-11.
 
 ## Functionality, Usability, Data Management
 
-I created a comprehensive Testing Document to assess site functionality, usability and data management which can be viewed 
-as a PDF **[here](static/../testing_dml/manual-testing.pdf).**
+I created a comprehensive Testing Document to assess site functionality, usability and data management which can be **[viewed as a PDF here](static/../testing_dml/manual-testing.pdf).**
 
 **Overview of Testing Procedure:**
 1. Testing Account Creation and Log in.
 2. Testing Checkout Functionality, and CRUD.
 3. Testing Make a Purchase
 4. Testing Known Issues with the Checkout.
-5. Testing submission of a prdouct Review.
+5. Testing submission of a product Review.
 6. Testing Search Functionality. 
 
 **Result:** Site performed as expected. Please see the Testing Document referenced above. 

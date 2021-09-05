@@ -16,7 +16,7 @@
   - [Front-End Technologies](#front-end-technologies)
   - [Back-End Technologies](#back-end-technologies)
     - [Django](#django)
-    - [Heroku](#heroku)
+    - [Heroku and AWS](#heroku-and-aws)
     - [Python](#python)
 - [Testing](#testing)
 - [Deployment](#deployment)
@@ -168,8 +168,9 @@ The database consists of the following tables, represented as follows:
 #### Django
 - [Django 3.2.5](https://docs.djangoproject.com/en/3.2/releases/3.2.5/) is a framework that is used to render the back-end Python with front-end Bootstrap. 
 
-#### Heroku
+#### Heroku and AWS
 - [Heroku](https://www.heroku.com/) - to host the site.
+- [AWS](https://aws.amazon.com/) an S3 bucket is used to store static images/scripts.  
   
 #### Python
 - [Python 3.9](https://www.python.org/downloads/release/python-390/) - back-end programming language. 
