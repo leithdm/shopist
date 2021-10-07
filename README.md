@@ -29,18 +29,8 @@
 
 ## Overview
 
-Shopist is an e-commerce site for purchasing boutique furniture items. You can view the deployed site 
+Shopist is an example e-commerce site for purchasing boutique furniture items. You can view the deployed site 
 [here](https://shopist-dml.herokuapp.com/). 
-
-<br/>
-
-## UX
-
-This project is part of the [Code Institute](https://codeinstitute.net/) Full Stack Software Development course, 
-specifically **Module 4: Full Stack Frameworks with Django**. 
-
-The objective for this milestone project is to "*build a full-stack site that allows your users to manage a common 
-dataset about a particular domain*".
 
 <br/>
 
